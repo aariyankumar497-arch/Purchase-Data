@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GST Auto Fill</title>
+</head>
+<body>
+
+<h2>GST Party Finder</h2>
+
+<input type="text" id="gstin" placeholder="Enter GSTIN">
+<button onclick="findParty()">Find</button>
+
+<h3 id="result"></h3>
+
+<script>
+const data = {
+  "07ABCDE1234F1Z5": {
+    name: "ABC Traders",
+    address: "Delhi"
+  },
+  "06XYZDE5678G1Z2": {
+    name: "XYZ Enterprises",
+    address: "Haryana"
+  }
+};
+
+function findParty() {
+  let gstin = document.getElementById("gstin").value;
+
+  if (data[gstin]) {
+    document.getElementById("result").innerHTML =
+      "Name: " + data[gstin].name + "<br>Address: " + data[gstin].address;
+  } else {
+    document.getElementById("result").innerHTML = "No Data Found";
+  }
+}
+</script>
+
+</body>
+</html>
